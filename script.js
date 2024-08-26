@@ -1,12 +1,12 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
-const caixaAlternativas = document.querySelector(".caixa-alternativa");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 
-  const perguntas= [
+const perguntas = [
     {
-        enunciado:"Em 1876, na tranquila vila de Dharampur, um surto de uma doença misteriosa começou a afetar seus habitantes. Desorientação e confusão mental se espalhavam como uma sombra. O curandeiro Rajesh decide investigar a causa."
+        enunciado:"Em 1876, na tranquila vila de Dharampur, um surto de uma doença misteriosa começou a afetar seus habitantes. Desorientação e confusão mental se espalhavam como uma sombra. O curandeiro Rajesh decide investigar a causa.",
         alternativas: [
             {
                 texto:"Ele descobriu que todos os afetados haviam consumido o leite de cabra produzido na vila.
@@ -20,7 +20,7 @@ const textoResultado = document.querySelector(".texto-resultado");
         ]
     },
     {
-      enunciado:"Qual foi a principal descoberta de Rajesh nos antigos manuscritos?"
+      enunciado:"Qual foi a principal descoberta de Rajesh nos antigos manuscritos?",
       alternativas:
       [
         {
@@ -34,7 +34,7 @@ const textoResultado = document.querySelector(".texto-resultado");
       ]
     },
     {
-      enunciado:"Como o sábio Arjun contribuiu para a solução do problema?"
+      enunciado:"Como o sábio Arjun contribuiu para a solução do problema?",
       alternativas:[
         {
           texto:"Ele revelou que a doença era uma maldição de uma disputa antiga e que o leite contaminado era o veículo da maldição.",
@@ -47,7 +47,7 @@ const textoResultado = document.querySelector(".texto-resultado");
       ]
     },
     {
-      enunciado:"Qual foi a estratégia de Rajesh e Arjun para combater a contaminação? "
+      enunciado:"Qual foi a estratégia de Rajesh e Arjun para combater a contaminação? ",
       alternativas: [
         {
           texto:" Eles identificaram e eliminaram a erva contaminada dos campos e mudaram o método de alimentação das cabras.",
@@ -60,7 +60,7 @@ const textoResultado = document.querySelector(".texto-resultado");
       ]
     },
     {
-      enunciado:"Qual foi o resultado das ações de Rajesh e Arjun para a vila?"
+      enunciado:"Qual foi o resultado das ações de Rajesh e Arjun para a vila?",
       alternativas: [
         {
           texto:"A doença começou a desaparecer, e a paz foi restaurada, com Dharampur recuperando sua tranquilidade.",
@@ -75,41 +75,41 @@ const textoResultado = document.querySelector(".texto-resultado");
   ];
 
 
-  let atual = 0;
-  let perguntaAtual;
-  let historiaFinal= "";
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
 
-  function mostraPergunta() {
+function mostraPergunta() {
     if (atual >= perguntas.length) {
-      mostraResultado();
-      return;
+        mostraResultado();
+        return;
     }
     perguntaAtual = perguntas[atual];
     caixaPerguntas.textContent = perguntaAtual.enunciado;
     caixaAlternativas.textContent = "";
     mostraAlternativas();
-  }
+}
 
 function mostraAlternativas(){
-  for(const alternativa of perguntaAtual.alternativas) {
-    const botaoAlternativas = document.createElement("button");
-    botaoAlternativas.textContent = alternativa.texto;
-    botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
-    caixaAlternativas.appendChild(botaoAlternativas);
-  }
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
 }
 
 function respostaSelecionada(opcaoSelecionada) {
-  const afirmacoes = opcaoSelecionada.afirmacao;
-  historiaFinal += afirmacoes + " ";
-  atual++;
-  mostraPergunta();
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
+    atual++;
+    mostraPergunta();
 }
 
 function mostraResultado() {
-  caixaPerguntas.textContent = "Em 2049...";
-  textoResultado.textContent = historiaFinal;
-  caixaAlternativas.textContent = "";
+    caixaPerguntas.textContent = "Em 2049...";
+    textoResultado.textContent = historiaFinal;
+    caixaAlternativas.textContent = "";
 }
 
 mostraPergunta();
