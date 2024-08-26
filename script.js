@@ -10,7 +10,7 @@ const perguntas = [
         alternativas: [
             {
                 texto:"Ele descobriu que todos os afetados haviam consumido o leite de cabra produzido na vila.",
-                afirmacao: "Essa descoberta levou Rajesh a focar no leite como a fonte do problema, permitindo que ele e Arjun identificassem a erva contaminada que estava afetando o leite. Com isso, implementaram uma solução eficaz que ajudou a erradicar a doença.
+                afirmacao: "Essa descoberta levou Rajesh a focar no leite como a fonte do problema, permitindo que ele e Arjun identificassem a erva contaminada que estava afetando o leite. Com isso, implementaram uma solução eficaz que ajudou a erradicar a doença."
             },
             {
               texto:"Ele notou que os sintomas surgiam apenas após o consumo de alimentos preparados por um antigo cozinheiro.",
